@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   faMagnifyingGlass,
@@ -7,11 +7,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
 
-const FilterCountries = () => {
+const FilterCountries = ({region}) => {
   const [selectFilter, setSelectFilter] = useState('Filter by region');
   const [selectOpen, setSelectOpen] = useState(false);
 
-  const regions = ['All', 'Africa', 'America', 'Asia', 'Europe', 'Ocenia'];
+  const regions = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+
+  useEffect(() => {
+    region(selectFilter);
+  }, [selectFilter]);
 
   return (
     <section className='filter-section'>

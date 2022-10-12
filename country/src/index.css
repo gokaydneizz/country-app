@@ -146,6 +146,7 @@ nav .theme-container span {
   min-width: 20%;
   max-width: 300px;
   border-radius: 10px;
+  cursor: pointer;
   padding-bottom: 1.5em;
   box-shadow: -2px -1px 12px 4px rgba(0, 0, 0, 0.42);
 }
