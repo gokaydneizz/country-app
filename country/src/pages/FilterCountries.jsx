@@ -26,11 +26,11 @@ const FilterCountries = () => {
           <span>{selectFilter}</span>
           <FontAwesomeIcon
             className='select-icon'
-            icon={selectOpen ? faChevronDown : faChevronUp}
+            icon={selectOpen ? faChevronUp : faChevronDown}
           />
         </div>
         {selectOpen && (
-          <ul className='list'>
+          <ul className='list' onClick={() => setSelectOpen(prev => !prev)}>
             {regions.map((region, idx) => {
               return (
                 <li
