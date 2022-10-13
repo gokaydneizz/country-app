@@ -12,15 +12,15 @@ const Countries = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchCountries = async () => {
+    setLoading(true);
     const countryData = await axios
       .get('https://restcountries.com/v3.1/all')
       .then(response => setCountries(response.data));
+    setLoading(false);
   };
 
   useEffect(() => {
-    setLoading(true);
     fetchCountries();
-    setLoading(false);
   }, []);
 
   let data =
@@ -50,7 +50,8 @@ const Countries = () => {
           {data.map((country, idx) => (
             <CountryCard key={idx} countryData={country} />
           ))}
-          {!loading && data.length === 0 && <h1>NO DATA FOUND</h1>}
+          {loading && <h1>LOADING</h1>}
+          {data.length <= 0 && !loading ? <h1>NO DATA FOUND</h1> : ''}
         </div>
       </div>
     </div>
