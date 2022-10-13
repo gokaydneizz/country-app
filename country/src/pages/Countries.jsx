@@ -8,7 +8,8 @@ import CountryCard from '../components/CountryCard';
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [filteredByRegion, setFilteredByRegion] = useState([]);
-  let data = [];
+  const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const fetchCountries = async () => {
     const countryData = await axios
@@ -17,8 +18,21 @@ const Countries = () => {
   };
 
   useEffect(() => {
+    setLoading(true);
     fetchCountries();
+    setLoading(false);
   }, []);
+
+  let data =
+    filteredByRegion.length > 0
+      ? filteredByRegion.filter(country =>
+          country.name.common.includes(inputValue)
+        )
+      : countries.filter(country => country.name.common.includes(inputValue));
+
+  const inputHandler = value => {
+    setInputValue(value);
+  };
 
   const regionHandler = region => {
     setFilteredByRegion(
@@ -28,23 +42,15 @@ const Countries = () => {
     );
   };
 
-  if (filteredByRegion.length > 0) {
-    data = filteredByRegion;
-  } else {
-    data = countries;
-  }
   return (
     <div className='countries'>
       <div className='countries-container'>
-        <FilterCountries region={regionHandler} />
+        <FilterCountries region={regionHandler} input={inputHandler} />
         <div className='countries-div'>
           {data.map((country, idx) => (
-            <CountryCard
-              key={idx}
-              countryData={country}
-              region={regionHandler}
-            />
+            <CountryCard key={idx} countryData={country} />
           ))}
+          {!loading && data.length === 0 && <h1>NO DATA FOUND</h1>}
         </div>
       </div>
     </div>

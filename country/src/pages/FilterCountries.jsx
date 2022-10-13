@@ -7,9 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
 
-const FilterCountries = ({region}) => {
+const FilterCountries = ({region, input}) => {
   const [selectFilter, setSelectFilter] = useState('Filter by region');
   const [selectOpen, setSelectOpen] = useState(false);
+  const [inputValue, setInputValue] = useState('');
 
   const regions = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
@@ -17,11 +18,24 @@ const FilterCountries = ({region}) => {
     region(selectFilter);
   }, [selectFilter]);
 
+  useEffect(() => {
+    input(inputValue);
+  }, [inputValue]);
+
+  // useEffect(() => {
+  //   input(inputRef.current?.value);
+  // }, [inputRef.current?.value]);
+
   return (
     <section className='filter-section'>
       <div className='inputBox'>
         <FontAwesomeIcon icon={faMagnifyingGlass} />
-        <input type='text' placeholder='Search for a country...' />
+        <input
+          type='text'
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
+          placeholder='Search for a country...'
+        />
       </div>
       <div className='select'>
         <div
