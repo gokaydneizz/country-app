@@ -379,8 +379,7 @@ nav .theme-container span {
 
   .country-info-container {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-left: 8%;
   }
 
   .country-image-box {
@@ -399,10 +398,12 @@ nav .theme-container span {
   .border-countries {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
   }
 
-  .border-country {
-    margin-left: 20px;
-    margin-bottom: 10px;
+  .borders {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 }
