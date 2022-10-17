@@ -28,7 +28,9 @@ const Countries = () => {
       ? filteredByRegion.filter(country =>
           country.name.common.includes(inputValue)
         )
-      : countries.filter(country => country.name.common.includes(inputValue));
+      : countries.filter(country =>
+          country.name.common.toLowerCase().includes(inputValue.toLowerCase())
+        );
 
   const inputHandler = value => {
     setInputValue(value);

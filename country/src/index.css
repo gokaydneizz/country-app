@@ -7,6 +7,13 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 14px;
+  height: 100%;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.link {
+  text-decoration: none;
+  color: hsl(200, 15%, 8%);
 }
 
 /* navbar */
@@ -14,6 +21,7 @@ body {
 nav {
   width: 100%;
   box-shadow: 0px 4px 5px 0px rgba(224, 215, 224, 1);
+  background-color: #fff;
 }
 
 nav .navbar {
@@ -182,4 +190,82 @@ nav .theme-container span {
 
 .country-card-container li span {
   font-weight: 900;
+}
+
+/* country details page*/
+
+.country-details-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.back-btn-container {
+  margin: 4em 0;
+  cursor: pointer;
+  display: flex;
+  padding: 10px 50px;
+  align-items: center;
+  max-width: 120px;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 1px 4px 19px 5px rgba(214, 214, 214, 1);
+}
+.country-info-container {
+  display: flex;
+  margin-top: 5em;
+}
+
+.country-image-box {
+  flex: 1;
+}
+.country-image-box img {
+  width: 600px;
+  height: 400px;
+}
+
+.contentBox {
+  padding-top: 4em;
+  flex: 1;
+}
+
+.contentBox h1 {
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.content-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-list-first {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  gap: 10px;
+}
+
+.content-list-second {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5em;
+  gap: 10px;
+}
+
+.list-item span {
+  font-weight: 800;
+}
+
+.border-countries {
+  margin-top: 4em;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.border-country {
+  padding: 10px 15px;
+  border: none;
+  box-shadow: 1px 4px 19px 5px rgba(214, 214, 214, 1);
+  cursor: pointer;
 }

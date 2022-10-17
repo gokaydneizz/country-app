@@ -1,10 +1,16 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 const CountryCard = ({countryData}) => {
   const {flags, name, population, region, capital} = countryData;
 
+  const navigate = useNavigate();
+
+  const navigateToDetails = () => {
+    navigate(`country/${name.common}`, {state: countryData});
+  };
   return (
-    <div className='country-card-container'>
+    <div className='country-card-container' onClick={navigateToDetails}>
       <div className='country-flag'>
         <img src={flags.png} alt='flag' />
       </div>
