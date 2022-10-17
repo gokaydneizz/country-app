@@ -20,17 +20,17 @@ const Countries = () => {
     const countryData = await axios
       .get('https://restcountries.com/v3.1/all')
       .then(response => setCountries(response.data));
-
     setLoading(false);
   };
-  useEffect(() => {
-    document.body.style.backgroundColor =
-      theme == 'light' ? 'hsl(0, 0%, 98%)' : 'hsl(207, 26%, 17%)';
-  }, [theme]);
 
   useEffect(() => {
     fetchCountries();
   }, []);
+
+  useEffect(() => {
+    document.body.style.backgroundColor =
+      theme == 'light' ? 'hsl(0, 0%, 98%)' : 'hsl(207, 26%, 17%)';
+  }, [theme]);
 
   let data =
     filteredByRegion.length > 0

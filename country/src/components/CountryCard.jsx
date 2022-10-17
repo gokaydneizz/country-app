@@ -4,14 +4,14 @@ import {useNavigate} from 'react-router-dom';
 import {ThemeContext} from '../context/ThemeContext';
 
 const CountryCard = ({countryData}) => {
-  const {flags, name, population, region, capital} = countryData;
+  const {flags, name, population, region, capital, fifa} = countryData;
 
   const {theme} = useContext(ThemeContext);
 
   const navigate = useNavigate();
 
   const navigateToDetails = () => {
-    navigate(`country/${name.common}`, {state: countryData});
+    navigate(`/country/${fifa}`, {state: countryData});
   };
   return (
     <div

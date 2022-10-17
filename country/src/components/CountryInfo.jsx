@@ -18,9 +18,9 @@ const CountryInfo = ({data}) => {
     borders,
   } = data;
 
-  const {theme} = useContext(ThemeContext);
-
   console.log(data);
+
+  const {theme} = useContext(ThemeContext);
 
   const currenciesArr = [];
   const languagesArr = [];
