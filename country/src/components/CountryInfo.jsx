@@ -1,4 +1,7 @@
 import React from 'react';
+import {useEffect} from 'react';
+import {useContext} from 'react';
+import {ThemeContext} from '../context/ThemeContext';
 
 const CountryInfo = ({data}) => {
   const {
@@ -15,6 +18,8 @@ const CountryInfo = ({data}) => {
     borders,
   } = data;
 
+  const {theme} = useContext(ThemeContext);
+
   console.log(data);
 
   const currenciesArr = [];
@@ -24,13 +29,23 @@ const CountryInfo = ({data}) => {
     currenciesArr.push(currency);
   }
 
+  useEffect(() => {
+    document.body.style.backgroundColor =
+      theme == 'light' ? 'hsl(0, 0%, 98%)' : 'hsl(207, 26%, 17%)';
+  }, [theme]);
+
   for (const [key, value] of Object.entries(languages)) {
     languagesArr.push(value);
   }
-  const languagesArrJoined = languagesArr.join(',');
+  const languagesArrJoined = languagesArr?.join(',');
 
   return (
-    <div className='country-info-container'>
+    <div
+      className={
+        theme === 'light'
+          ? 'country-info-container'
+          : 'country-info-container dark'
+      }>
       <div className='country-image-box'>
         <img src={flags.svg} alt='' />
       </div>
@@ -60,7 +75,7 @@ const CountryInfo = ({data}) => {
             </div>
             <div className='list-item'>
               <span>Currencies : </span>{' '}
-              {currenciesArr.map((currency, idx) => (
+              {currenciesArr?.map((currency, idx) => (
                 <span key={idx} style={{fontWeight: 300}}>
                   {currency}
                 </span>
@@ -73,8 +88,10 @@ const CountryInfo = ({data}) => {
         </div>
         <div className='border-countries'>
           <b>Border Countries : </b>{' '}
-          {borders.map((border, idx) => (
-            <button className='border-country' key={idx}>{border}</button>
+          {borders?.map((border, idx) => (
+            <button className='border-country' key={idx}>
+              {border}
+            </button>
           ))}
         </div>
       </div>

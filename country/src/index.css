@@ -8,7 +8,6 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 14px;
   height: 100%;
-  background-color: hsl(0, 0%, 98%);
 }
 
 .link {
@@ -24,6 +23,12 @@ nav {
   background-color: #fff;
 }
 
+.darknav {
+  background-color: hsl(209, 23%, 22%);
+  color: #fff;
+  box-shadow: none;
+}
+
 nav .navbar {
   max-width: 1440px;
   margin: 0 auto;
@@ -32,6 +37,12 @@ nav .navbar {
   align-items: center;
   padding: 2em 0;
   color: hsl(200, 15%, 8%);
+}
+
+.navbar.dark h1,
+.navbar.dark span,
+.navbar.dark .icon {
+  color: #fff;
 }
 
 nav h1 {
@@ -44,6 +55,7 @@ nav .theme-container {
   gap: 10px;
   align-items: center;
   color: hsl(0, 0%, 24%);
+  cursor: pointer;
 }
 
 nav .icon {
@@ -64,6 +76,10 @@ nav .theme-container span {
   height: 100%;
   width: 100%;
   background-color: hsl(0, 0%, 98%);
+}
+
+.countries.dark {
+  background-color: hsl(207, 26%, 17%);
 }
 
 .countries-container {
@@ -91,11 +107,23 @@ nav .theme-container span {
   box-shadow: 1px 4px 19px 5px rgba(214, 214, 214, 1);
 }
 
+.inputBox.dark {
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: none;
+}
+
 .inputBox input {
   border: none;
   outline: none;
   width: 100%;
   color: hsl(0, 0%, 52%);
+}
+
+.inputBox.dark input::placeholder,
+.inputBox.dark input,
+.inputBox.dark .input-icon {
+  background-color: hsl(209, 23%, 22%);
+  color: white;
 }
 
 .select {
@@ -119,6 +147,13 @@ nav .theme-container span {
   color: hsl(0, 0%, 52%);
   cursor: pointer;
   width: 100%;
+}
+
+.select.dark .select-title,
+.select.dark .list,
+.select.dark .list li {
+  background-color: hsl(209, 23%, 22%);
+  color: #fff;
 }
 
 .list {
@@ -157,6 +192,11 @@ nav .theme-container span {
   cursor: pointer;
   padding-bottom: 1.5em;
   box-shadow: -2px -1px 12px 4px rgba(0, 0, 0, 0.42);
+}
+
+.country-card-container.dark {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
 }
 
 .content {
@@ -199,6 +239,10 @@ nav .theme-container span {
   margin: 0 auto;
 }
 
+.country-info-container.dark {
+  color: hsl(0, 0%, 100%);
+}
+
 .back-btn-container {
   margin: 4em 0;
   cursor: pointer;
@@ -208,8 +252,17 @@ nav .theme-container span {
   max-width: 120px;
   justify-content: center;
   border-radius: 5px;
+  gap: 10px;
   box-shadow: 1px 4px 19px 5px rgba(214, 214, 214, 1);
 }
+
+.back-btn-container.dark {
+  box-shadow: none;
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+  gap: 10px;
+}
+
 .country-info-container {
   display: flex;
   margin-top: 5em;
@@ -268,4 +321,10 @@ nav .theme-container span {
   border: none;
   box-shadow: 1px 4px 19px 5px rgba(214, 214, 214, 1);
   cursor: pointer;
+}
+
+.country-info-container.dark .border-country {
+  box-shadow: none;
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
 }

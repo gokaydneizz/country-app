@@ -6,11 +6,15 @@ import {
   faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 import {useState} from 'react';
+import {useContext} from 'react';
+import {ThemeContext} from '../context/ThemeContext';
 
 const FilterCountries = ({region, input}) => {
   const [selectFilter, setSelectFilter] = useState('Filter by region');
   const [selectOpen, setSelectOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
+
+  const {theme} = useContext(ThemeContext);
 
   const regions = ['All', 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
@@ -28,8 +32,8 @@ const FilterCountries = ({region, input}) => {
 
   return (
     <section className='filter-section'>
-      <div className='inputBox'>
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+      <div className={theme === 'light' ? 'inputBox' : 'inputBox dark'}>
+        <FontAwesomeIcon className='input-icon' icon={faMagnifyingGlass} />
         <input
           type='text'
           value={inputValue}
@@ -37,7 +41,7 @@ const FilterCountries = ({region, input}) => {
           placeholder='Search for a country...'
         />
       </div>
-      <div className='select'>
+      <div className={theme === 'light' ? 'select' : 'select dark'}>
         <div
           onClick={() => setSelectOpen(prev => !prev)}
           className='select-title'>

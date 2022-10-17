@@ -4,6 +4,8 @@ import FilterCountries from './FilterCountries';
 import axios from 'axios';
 import {useEffect} from 'react';
 import CountryCard from '../components/CountryCard';
+import {useContext} from 'react';
+import {ThemeContext} from '../context/ThemeContext';
 
 const Countries = () => {
   const [countries, setCountries] = useState([]);
@@ -11,13 +13,20 @@ const Countries = () => {
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const {theme} = useContext(ThemeContext);
+
   const fetchCountries = async () => {
     setLoading(true);
     const countryData = await axios
       .get('https://restcountries.com/v3.1/all')
       .then(response => setCountries(response.data));
+
     setLoading(false);
   };
+  useEffect(() => {
+    document.body.style.backgroundColor =
+      theme == 'light' ? 'hsl(0, 0%, 98%)' : 'hsl(207, 26%, 17%)';
+  }, [theme]);
 
   useEffect(() => {
     fetchCountries();
@@ -45,7 +54,7 @@ const Countries = () => {
   };
 
   return (
-    <div className='countries'>
+    <div className={theme === 'light' ? 'countries' : 'countries dark'}>
       <div className='countries-container'>
         <FilterCountries region={regionHandler} input={inputHandler} />
         <div className='countries-div'>
