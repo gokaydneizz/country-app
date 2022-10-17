@@ -332,13 +332,15 @@ nav .theme-container span {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 600px) {
+  /* countries section */
+
   nav {
     padding: 20px;
     font-size: 13px;
   }
 
   .navbar h1 {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .countries-div {
@@ -362,5 +364,45 @@ nav .theme-container span {
 
   .select {
     margin-left: 15px;
+    font-size: 0.9rem;
+  }
+
+  .select span {
+    margin-right: 20px;
+  }
+
+  /* country details section */
+
+  .back-btn-container {
+    margin-left: 10px;
+  }
+
+  .country-info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .country-image-box {
+    max-width: 320px;
+    max-height: 320px;
+  }
+  .country-image-box img {
+    width: 320px;
+    max-height: 320px;
+  }
+
+  .content-list {
+    flex-direction: column;
+  }
+
+  .border-countries {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .border-country {
+    margin-left: 20px;
+    margin-bottom: 10px;
   }
 }

@@ -87,12 +87,14 @@ const CountryInfo = ({data}) => {
           </div>
         </div>
         <div className='border-countries'>
-          <b>Border Countries : </b>{' '}
-          {borders?.map((border, idx) => (
-            <button className='border-country' key={idx}>
-              {border}
-            </button>
-          ))}
+          <b>Border Countries : </b>
+          <div className='borders'>
+            {borders?.map((border, idx) => (
+              <button className='border-country' key={idx}>
+                {border}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
